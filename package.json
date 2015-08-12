@@ -1,0 +1,31 @@
+{
+  "name": "rpi-temp-logger",
+  "version": "1.0.0",
+  "description": "Yet another Raspberry Pi Temperature Logger",
+  "main": "tempmon.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yangliu/rpi-temp-logger.git"
+  },
+  "keywords": [
+    "raspberry",
+    "pi",
+    "ds18x20"
+  ],
+  "author": "Yang Liu <i@yangliu.name>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yangliu/rpi-temp-logger/issues"
+  },
+  "homepage": "https://github.com/yangliu/rpi-temp-logger#readme",
+  "dependencies": {
+    "coffee-script": "^1.9.3",
+    "ds18x20": "^0.2.0"
+  },
+  "devDependencies": {
+    "coffee": "^1.1.0"
+  }
+}
