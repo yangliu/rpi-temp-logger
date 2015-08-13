@@ -2,7 +2,7 @@
   "name": "rpi-temp-logger",
   "version": "1.0.0",
   "description": "Yet another Raspberry Pi Temperature Logger",
-  "main": "tempmon.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
