@@ -1,0 +1,12 @@
+{
+  "sensors": [
+    {
+      "description": "bedroom",
+      "id": "28-000005507d0b",
+      "interval": "300",
+      "enable": true
+    }
+  ],
+  "verbose": true,
+  "endOfJSON": true
+}
