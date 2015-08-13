@@ -23,7 +23,8 @@
   "homepage": "https://github.com/yangliu/rpi-temp-logger#readme",
   "dependencies": {
     "coffee-script": "^1.9.3",
-    "ds18x20": "^0.2.0"
+    "ds18x20": "^0.2.0",
+    "moment": "^2.10.6"
   },
   "devDependencies": {
     "coffee": "^1.1.0"
