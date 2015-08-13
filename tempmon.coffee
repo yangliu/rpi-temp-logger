@@ -5,6 +5,12 @@ cfg     = require './conf/cfg.tempmon.json'
 DEBUG = if cfg.verbose then true else false
 available_sensors = []
 
+logTemp = (desc, time, temp, cb) ->
+  err = ""
+  
+  cb err
+  true
+
 init = () ->
   # initialize the temperature sensor
   ds18x20.isDriverLoaded (err, isLoaded)->
@@ -48,5 +54,5 @@ init = () ->
                 if DEBUG
                   console.log "[INFO] [" + now.format("YYYY-MM-DD HH:mm") + "] Sensor \"" + sensor.id + "\" data is logged successfully."
       , sensor.interval
-      
+
 init()
