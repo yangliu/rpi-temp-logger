@@ -7,7 +7,7 @@ available_sensors = []
 
 logTemp = (desc, time, temp, cb) ->
   err = ""
-  
+
   cb err
   true
 
@@ -53,6 +53,6 @@ init = () ->
               else
                 if DEBUG
                   console.log "[INFO] [" + now.format("YYYY-MM-DD HH:mm") + "] Sensor \"" + sensor.id + "\" data is logged successfully."
-      , sensor.interval
+      , sensor.interval*1000
 
 init()
