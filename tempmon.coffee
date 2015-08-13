@@ -1,4 +1,8 @@
 sensor = require 'ds18x20'
+cfg    = require './conf/cfg.tempmon.json'
+
+DEBUG = false unless cfg.verbose
+available_sensors = []
 
 init = () ->
   # initialize the temperature sensor
@@ -9,6 +13,9 @@ init = () ->
       catch err
         console.error "Failed to load the driver: " + err
         console.error "You may need to load them manually before start this program, or run this program with root access."
-
+        exit 1
+    available_sensors = sensor.list()
+    if DEBUG
+      console.log "Available sensors:" + available_sensors
 
 init()
