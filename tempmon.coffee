@@ -33,7 +33,7 @@ init = () ->
         if DEBUG
           console.log "[Warning] Sensor \"" + sensor.id + "\" is not available."
         continue
-      sensorTimers[] = setInterval ->
+      sensorTimers.push setInterval ->
         ds18x20.get sensor.id, (err, temp) ->
           now = moment()
           if err
@@ -47,5 +47,6 @@ init = () ->
               else
                 if DEBUG
                   console.log "[INFO] [" + now.format("YYYY-MM-DD HH:mm") + "] Sensor \"" + sensor.id + "\" data is logged successfully."
-
+      , sensor.interval
+      
 init()
