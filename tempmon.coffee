@@ -4,6 +4,7 @@ cfg     = require './conf/cfg.tempmon.json'
 
 DEBUG = if cfg.verbose then true else false
 available_sensors = []
+sensor_timers = []
 
 logTemp = (desc, time, temp, cb) ->
   err = ""
@@ -33,13 +34,12 @@ init = () ->
       console.log "Available sensors:" + available_sensors
 
     # Monitor all sensors in the config file
-    sensorTimers = []
     for sensor in cfg.sensors
       if sensor.id not in available_sensors
         if DEBUG
           console.log "[Warning] Sensor \"" + sensor.id + "\" is not available."
         continue
-      sensorTimers.push setInterval ->
+      sensor_timers.push setInterval ->
         ds18x20.get sensor.id, (err, temp) ->
           now = moment()
           if err
@@ -56,3 +56,11 @@ init = () ->
       , sensor.interval*1000
 
 init()
+
+# gracefully kill myself :P
+process.on 'SIGINT', ->
+  console.log "Shutting down Temperature monitoring daemon..."
+  for timer in sensor_timers
+    clearInterval timer
+  console.log "Exiting..."
+  process.exit()
